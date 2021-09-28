@@ -1,0 +1,137 @@
+<MainScreen>:
+    canvas.before:
+        Color:
+            rgba:(0.36862745098,0.20784313725 ,0.69411764705,1)
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [20]
+    padding:(10,5)
+    orientation:"vertical"
+    spacing:10
+
+    Label:
+        text:"BMI Calculator"
+        font_size:"30dp"
+        color:1,1,1,1
+
+<Meta_Function>:
+    BoxLayout:
+        canvas.before:
+            Color:
+                rgba:((0.270588235,0.152941176 ,0.62745098,1))
+            RoundedRectangle:
+                pos: self.pos
+                size: self.size
+                radius: [20]
+        spacing :-30
+        Label:
+            text: "Height(Cms)"
+            font_size:"25dp"
+            color: 1,1,1,1
+        Slider:
+            id : height_val
+            min : 120
+            max : 240
+            value : 150
+            on_value: root.on_slide_height(self)
+        Label:
+            text:str(int(height_val.value))
+            font_size:"25dp"
+        Label:
+            text:"Cms"
+            font_size:"25dp"
+
+    BoxLayout:
+        canvas.before:
+            Color:
+                rgba:((0.270588235,0.152941176 ,0.62745098,1))
+            RoundedRectangle:
+                pos: self.pos
+                size: self.size
+                radius: [20]
+        spacing :-30
+        Label:
+            text: "Weight(Kgs)"
+            font_size:"25dp"
+            color: 1,1,1,1
+        Slider:
+            id : weight_val
+            min : 40
+            max : 120
+            value : 50
+            on_value: root.on_slide_weight(self)
+        Label:
+            text:str(int(weight_val.value))
+            font_size:"25dp"
+        Label:
+            text:"Kgs"
+            font_size:"25dp"
+
+    BoxLayout:
+        canvas.before:
+            Color:
+                rgba:((0.270588235,0.152941176 ,0.62745098,1))
+            RoundedRectangle:
+                pos: self.pos
+                size: self.size
+                radius: [20]
+        spacing: -30
+        Label:
+            text: "Age(Years)"
+            font_size:"25dp"
+            color: 1,1,1,1
+        Slider:
+            id : age_val
+            hint: True
+            min : 10
+            max : 100
+            value : 20
+            on_value: root.on_slide_age(self)
+        Label:
+            text:str(int(age_val.value))
+            font_size:"25dp"
+        Label:
+            text:"Years"
+            font_size:"25dp"
+    BoxLayout:
+        canvas.before:
+            Color:
+                rgba:((0.270588235,0.152941176 ,0.62745098,1))
+            RoundedRectangle:
+                pos: self.pos
+                size: self.size
+                radius: [20]
+        spacing: -30
+        Label:
+            text:"Male"
+            font_size:"25dp"
+        Switch:
+		    on_active: root.on_switch_active(self)
+        Label:
+            text:"Female"
+            font_size:"25dp"
+    Label:
+        id : output
+        text:""
+        markup : True
+        halign : "center"
+        font_size:"25dp"
+        canvas.before:
+            Color:
+                rgba: (0.270588235,0.152941176 ,0.62745098,1)
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius: [20]
+
+    Button:
+        background_color:(0.270588235,0.152941176 ,0.62745098,1)
+        text:"Process"
+        font_size:"25dp"
+        color: 1,1,1,1
+        on_press : root.bmi_calc(self)
+
+
+
+

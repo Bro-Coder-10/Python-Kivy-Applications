@@ -1,0 +1,260 @@
+<MainScreen>:
+    canvas.before:
+        Color:
+            rgba:(0.36862745098,0.20784313725 ,0.69411764705,1)
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [20]
+    padding:(10,5)
+    orientation:"vertical"
+    spacing:10
+
+    Label:
+        text:"WORKOUT CALORIES"
+        font_size:"30dp"
+        color:1,1,1,1
+
+    BoxLayout:
+        size_hint : (1,0.8)
+        canvas.before:
+            Color:
+                rgba:((0.8862,0.5491 ,0.2095,1))
+            RoundedRectangle:
+                pos: self.pos
+                size: self.size
+                radius: [15]
+        spacing :-35
+        Label:
+            text: "  [b][u]Yoga Types : Adjust the slider position to choose yoga type!\n[/u]1.nadisodhana    2.hatha     3.surya namaskar    4.power[/b]"
+            size_hint: 1,1
+            font_size: self.width/60
+            halign:"center"
+            valign:"middle"
+            markup:True
+            color: 0,0,0,1
+
+    BoxLayout:
+        size_hint : (1,1.8)
+        canvas.before:
+            Color:
+                rgba:((0.8862,0.5491 ,0.2095,1))
+            RoundedRectangle:
+                pos: self.pos
+                size: self.size
+                radius: [15]
+        spacing :-35
+        Label:
+            text: "[b][u]Cardio Types : Choose one from this and type in box\n[/u]inchworm,highknee,jumprope,jumpingjacks,burpees,pushpups,squats,lunges,\nmountainclimbers,plank,russiantwist,supermanpull,sicsorkicks,situps,\nhighplank kneencrossess,catcow,childpose,armcircles,bridges,crunches[/b]"
+            size_hint: 1,1
+            font_size: self.width/70
+            halign:"center"
+            valign:"middle"
+            markup:True
+            color: 0,0,0,1
+
+
+    BoxLayout:
+        canvas.before:
+            Color:
+                rgba:((0.270588235,0.152941176 ,0.62745098,1))
+            RoundedRectangle:
+                pos: self.pos
+                size: self.size
+                radius: [20]
+        spacing :-30
+        Label:
+            text: "Run speed in KMPH"
+            font_size:"25dp"
+            color: 1,1,1,1
+        Slider:
+            id : run_speed_val
+            min : 0
+            max : 11
+            value : 6
+            on_value: root.on_slide_running(self)
+        Label:
+            text:str(round(int(run_speed_val.value),1))
+            font_size:"25dp"
+    BoxLayout:
+        canvas.before:
+            Color:
+                rgba:((0.270588235,0.152941176 ,0.62745098,1))
+            RoundedRectangle:
+                pos: self.pos
+                size: self.size
+                radius: [20]
+        spacing :-30
+        Label:
+            text: "duration ran"
+            font_size:"25dp"
+            color: 1,1,1,1
+        Slider:
+            id : dur1
+            min : 0
+            max : 5
+            value : 4
+            on_value: root.on_duration1(self)
+        Label:
+            text:str(int(dur1.value))
+            font_size:"25dp"
+
+
+
+    BoxLayout:
+        canvas.before:
+            Color:
+                rgba:((0.270588235,0.152941176 ,0.62745098,1))
+            RoundedRectangle:
+                pos: self.pos
+                size: self.size
+                radius: [20]
+        spacing :-30
+        Label:
+            text: "Walk speed in KMPH"
+            font_size:"25dp"
+            color: 1,1,1,1
+        Slider:
+            id : walk_speed_val
+            min : 0
+            max : 8
+            value : 5
+            on_value: root.on_slide_walking(self)
+        Label:
+            text:str(round(int(walk_speed_val.value),1))
+            font_size:"25dp"
+
+    BoxLayout:
+        canvas.before:
+            Color:
+                rgba:((0.270588235,0.152941176 ,0.62745098,1))
+            RoundedRectangle:
+                pos: self.pos
+                size: self.size
+                radius: [20]
+        spacing :-30
+        Label:
+            text: "duration walked"
+            font_size:"25dp"
+            color: 1,1,1,1
+        Slider:
+            id : dur2
+            min : 0
+            max : 90
+            value : 6
+            on_value: root.on_duration2(self)
+        Label:
+            text:str(int(dur2.value))
+            font_size:"25dp"
+
+
+    BoxLayout:
+        canvas.before:
+            Color:
+                rgba:((0.270588235,0.152941176 ,0.62745098,1))
+            RoundedRectangle:
+                pos: self.pos
+                size: self.size
+                radius: [20]
+        spacing: -30
+        Label:
+            text: "Yoga type"
+            font_size:"25dp"
+            color: 1,1,1,1
+        Slider:
+            id : yoga_type
+            hint: True
+            min : 0
+            max : 4
+            value : 2
+            on_value: root.on_slide_yoga(self)
+        Label:
+            text:str(int(yoga_type.value))
+            font_size:"25dp"
+    BoxLayout:
+        canvas.before:
+            Color:
+                rgba:((0.270588235,0.152941176 ,0.62745098,1))
+            RoundedRectangle:
+                pos: self.pos
+                size: self.size
+                radius: [20]
+        spacing :-30
+        Label:
+            text: "yoga duration"
+            font_size:"25dp"
+            color: 1,1,1,1
+        Slider:
+            id : dur3
+            min : 0
+            max : 90
+            value : 6
+            on_value: root.on_duration3(self)
+        Label:
+            text:str(int(dur3.value))
+            font_size:"25dp"
+
+    BoxLayout:
+        spacing: -30
+        Label:
+            text : root.cardio_in
+            markup : True
+            color : 0,0,0,1
+            size_hint : 1,1
+            halign : "center"
+            valign : "middle"
+            font_size : self.width/16
+        TextInput:
+            id : cardio_type
+            size_hint: 1,1
+            font_size: self.width/15
+            text:""
+            multiline : False
+            color : (0,0,0,1)
+            valign: "middle"
+            halign : "left"
+            on_text_validate: root.on_text_cardio(self)
+    BoxLayout:
+        canvas.before:
+            Color:
+                rgba:((0.270588235,0.152941176 ,0.62745098,1))
+            RoundedRectangle:
+                pos: self.pos
+                size: self.size
+                radius: [20]
+        spacing :-30
+        Label:
+            text: "cardio duration"
+            font_size:"25dp"
+            color: 1,1,1,1
+        Slider:
+            id : dur4
+            min : 0
+            max : 90
+            value : 6
+            on_value: root.on_duration4(self)
+        Label:
+            text:str(int(dur4.value))
+            font_size:"25dp"
+
+
+    Label:
+        id : output1
+        text:""
+        markup : True
+        halign : "center"
+        font_size:"25dp"
+        canvas.before:
+            Color:
+                rgba: (0.270588235,0.152941176 ,0.62745098,1)
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius: [20]
+
+    Button:
+        background_color:(0.270588235,0.152941176 ,0.62745098,1)
+        text:"Process"
+        font_size:"25dp"
+        color: 1,1,1,1
+        on_press : root.workout_calc(self)

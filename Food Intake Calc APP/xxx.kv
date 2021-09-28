@@ -1,0 +1,91 @@
+<MainScreen>:
+    canvas.before:
+        Color:
+            rgba:(0.36862745098,0.20784313725 ,0.69411764705,1)
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [20]
+    padding:(10,5)
+    orientation:"vertical"
+    spacing:10
+
+    Label:
+        text:"FOOD CALORIES"
+        font_size:"30dp"
+        color:1,1,1,1
+
+    BoxLayout:
+        canvas.before:
+            Color:
+                rgba:((0.270588235,0.152941176 ,0.62745098,1))
+            RoundedRectangle:
+                pos: self.pos
+                size: self.size
+                radius: [20]
+        spacing :-30
+        Label:
+            id: food_input
+            text: "FOOD NAME"
+            font_size:"25dp"
+            color: 1,1,1,1
+
+
+    BoxLayout:
+        spacing: -30
+        Label:
+            text: root.food_in
+            markup:True
+            color : 0,0,0,1
+            size_hint: 1,1
+            halign: "center"
+            valign : "middle"
+            font_size: self.width/10
+        TextInput:
+            id : type_food
+            size_hint: 1,1
+            halign: "center"
+            valign : "middle"
+            font_size: self.width/8
+            text:""
+            multiline: False
+            color : (0,0,0,1)
+            on_text_validate: root.food_input(self)
+    BoxLayout:
+        canvas.before:
+            Color:
+                rgba:((0.270588235,0.152941176 ,0.62745098,1))
+            RoundedRectangle:
+                pos: self.pos
+                size: self.size
+                radius: [20]
+        spacing :-30
+        Label:
+            id: calories_intake
+            text: "CALORIES INTAKE"
+            font_size:"25dp"
+            color: 1,1,1,1
+
+    BoxLayout:
+        spacing: -30
+        Label:
+            id : output1
+            size_hint: 1,1
+            font_size: self.width/30
+            text:""
+            color : (0,0,0,1)
+            valign: "middle"
+            halign : "center"
+            canvas.before:
+                Color:
+                    rgba: (0.8862,0.5491 ,0.2095,1)
+                RoundedRectangle:
+                    pos:self.pos
+                    size:self.size
+                    radius: [15]
+    Button:
+        background_color:(0.8862,0.5491 ,0.2095,1)
+        text:"Process"
+        font_size:"25dp"
+        color: 1,1,1,1
+        on_press : root.foodcal(self)
